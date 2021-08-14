@@ -1,0 +1,30 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 287
+  Width = 441
+  object DesafiodelphiConnection: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=DesafioDelphi')
+    Connected = True
+    LoginPrompt = False
+    Left = 86
+    Top = 19
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 80
+    Top = 192
+  end
+  object DS: TDataSource
+    DataSet = query
+    Left = 232
+    Top = 168
+  end
+  object query: TFDQuery
+    Connection = DesafiodelphiConnection
+    SQL.Strings = (
+      'SELECT * FROM produto;')
+    Left = 80
+    Top = 80
+  end
+end

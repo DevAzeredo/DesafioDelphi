@@ -1,0 +1,12 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 287
+  Width = 441
+  object DesafiodelphiConnection: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=DesafioDelphi')
+    LoginPrompt = False
+    Left = 86
+    Top = 75
+  end
+end

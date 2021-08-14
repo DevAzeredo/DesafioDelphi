@@ -1,0 +1,48 @@
+unit uFrmNovoProduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, uClasseCategoria,
+  uClasseProduto, uDM, uFrmPrincipal;
+
+type
+  TfrmNovoProduto = class(TForm)
+    edtID: TEdit;
+    edtDescricao: TEdit;
+    edtValor: TEdit;
+    edtCategoria: TEdit;
+    btnSalvar: TButton;
+    procedure btnSalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmNovoProduto: TfrmNovoProduto;
+  Categoria: TCategoria;
+  Produto: TProduto;
+
+implementation
+
+
+{$R *.dfm}
+
+procedure TfrmNovoProduto.btnSalvarClick(Sender: TObject);
+begin
+  Categoria := TCategoria.Create;
+  Produto := TProduto.Create;
+  Categoria.ID:= StrToInt(edtCategoria.text);
+
+  Produto.ID := StrToInt(edtID.Text);
+  Produto.Descricao := edtDescricao.Text;
+  Produto.Valor := StrToCurr(edtValor.Text);
+
+  Produto.Salvar();
+end;
+
+end.

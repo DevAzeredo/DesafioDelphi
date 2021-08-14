@@ -1,0 +1,46 @@
+unit uClasseProduto;
+
+interface
+
+uses uClasseCategoria, uDM, uFrmPrincipal, System.SysUtils, Vcl.Dialogs;
+
+type
+  TProduto = class
+
+    Categoria: TCategoria;
+  private
+    FID: Integer;
+    FDescricao: String;
+    FValor: Currency;
+  protected
+    { protected declarations }
+  public
+    { public declarations }
+    property ID: Integer read FID write FID;
+    property Descricao: String read FDescricao write FDescricao;
+    property Valor: Currency read FValor write FValor;
+    procedure Salvar();
+
+  published
+    { published declarations }
+
+  end;
+
+implementation
+
+procedure TProduto.Salvar();
+begin
+  Categoria := TCategoria.Create;
+  ShowMessage(Categoria.ID.ToString);
+  ShowMessage(ID.ToString);
+  DM.query.SQL.Clear;
+  DM.query.SQL.Text :=
+    'INSERT INTO produto (ID, DESCRICAO, ID_CATEGORIA, PRECO) VALUES (' +
+    ID.ToString + ', "' + Descricao + '", ' + Categoria.ID.ToString + ', ' +
+    CurrToStr(Valor) + ');';
+  ShowMessage('4');
+
+  DM.query.ExecSQL;
+end;
+
+end.

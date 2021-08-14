@@ -1,0 +1,57 @@
+unit uFrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.WinXCtrls;
+
+type
+  TCatalogo = class(TForm)
+    Menu: TMainMenu;
+    Adicionar: TMenuItem;
+    menuProduto: TMenuItem;
+    Grid: TDBGrid;
+    Navigator: TDBNavigator;
+    edtID: TDBEdit;
+    edtDescricao: TDBEdit;
+    edtCategoria: TDBEdit;
+    edtPreco: TDBEdit;
+    RadioGroup1: TRadioGroup;
+    Button1: TButton;
+    SearchBox1: TSearchBox;
+    procedure FormCreate(Sender: TObject);
+    procedure menuProdutoClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Catalogo: TCatalogo;
+
+implementation
+
+{$R *.dfm}
+
+uses uClasseCategoria, uClasseProduto, uDM, uFrmNovoProduto;
+
+procedure TCatalogo.FormCreate(Sender: TObject);
+begin
+Navigator.Visible:=False;
+Grid.Visible:=False;
+edtID.Visible:=False;
+edtDescricao.Visible:=False;
+edtCategoria.Visible:=False;
+edtPreco.Visible:=False;
+
+end;
+
+procedure TCatalogo.menuProdutoClick(Sender: TObject);
+begin
+frmNovoProduto.ShowModal;
+end;
+
+end.
