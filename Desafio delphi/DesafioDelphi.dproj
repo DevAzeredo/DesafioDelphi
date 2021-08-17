@@ -103,7 +103,6 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uClasseProduto.pas"/>
-        <DCCReference Include="uClasseCategoria.pas"/>
         <DCCReference Include="uDM.pas">
             <Form>DM</Form>
             <FormType>dfm</FormType>

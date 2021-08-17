@@ -40,24 +40,47 @@ object Catalogo: TCatalogo
       item
         Expanded = False
         FieldName = 'ID'
+        Title.Caption = 'ID Produto'
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'DESCRICAO'
-        Title.Caption = 'Descri'#231#227'o'
+        Title.Caption = 'Descri'#231#227'o Produto'
+        Width = 300
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'ID_CATEGORIA'
-        Title.Caption = 'Categoria'
-        Visible = True
+        Visible = False
       end
       item
         Expanded = False
         FieldName = 'PRECO'
         Title.Caption = 'Pre'#231'o'
+        Width = 80
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ID_1'
+        Title.Caption = 'ID Categoria'
+        Width = 80
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DESCRICAO_1'
+        Title.Caption = 'Nome Categoria'
+        Width = 300
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VALOR'
+        Title.Caption = 'Valor Categoria'
+        Width = 100
         Visible = True
       end>
   end
@@ -70,7 +93,6 @@ object Catalogo: TCatalogo
     Align = alTop
     TabOrder = 1
     BeforeAction = NavigatorBeforeAction
-    ExplicitWidth = 835
   end
   object edtID: TDBEdit
     Left = 8
@@ -127,17 +149,17 @@ object Catalogo: TCatalogo
     TextHint = 'ID Categoria/Descri'#231#227'o'
   end
   object rBtnID: TRadioButton
-    Left = 728
+    Left = 759
     Top = 114
-    Width = 113
+    Width = 82
     Height = 17
     Caption = 'ID Categoria'
     TabOrder = 8
   end
   object rBtnDescricao: TRadioButton
-    Left = 847
+    Left = 687
     Top = 114
-    Width = 113
+    Width = 66
     Height = 17
     Caption = 'Descri'#231#227'o'
     TabOrder = 9
@@ -145,10 +167,18 @@ object Catalogo: TCatalogo
   object rBtnFiltro: TRadioButton
     Left = 615
     Top = 114
-    Width = 113
+    Width = 66
     Height = 17
     Caption = 'Sem filtro'
     TabOrder = 10
+  end
+  object rBtnDescricaoCategoria: TRadioButton
+    Left = 839
+    Top = 114
+    Width = 130
+    Height = 17
+    Caption = 'Descri'#231#227'o da Categoria'
+    TabOrder = 11
   end
   object Menu: TMainMenu
     Left = 8

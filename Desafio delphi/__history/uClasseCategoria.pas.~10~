@@ -1,0 +1,26 @@
+unit uClasseCategoria;
+
+interface
+
+uses uDM, uFrmPrincipal, System.SysUtils;
+
+type
+  TCategoria = class
+  private
+    FID         : Integer;
+    FDescricao  : String;
+
+  protected
+    { protected declarations }
+  public
+    { public declarations }
+    property ID         : Integer read FID        write FID;
+    property Descricao  : String  read FDescricao write FDescricao;
+  published
+    { published declarations }
+
+  end;
+
+implementation
+
+end.

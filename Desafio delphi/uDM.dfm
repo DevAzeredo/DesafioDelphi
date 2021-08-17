@@ -2,14 +2,6 @@ object DM: TDM
   OldCreateOrder = False
   Height = 287
   Width = 441
-  object DesafiodelphiConnection: TFDConnection
-    Params.Strings = (
-      'ConnectionDef=DesafioDelphi')
-    Connected = True
-    LoginPrompt = False
-    Left = 86
-    Top = 19
-  end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
     Left = 80
@@ -17,14 +9,15 @@ object DM: TDM
   end
   object DS: TDataSource
     DataSet = query
-    Left = 232
-    Top = 168
+    Left = 208
+    Top = 200
   end
   object query: TFDQuery
-    DetailFields = 'DESCRICAO;ID;ID_CATEGORIA;PRECO'
-    Connection = DesafiodelphiConnection
+    DetailFields = 'DESCRICAO;ID;ID_CATEGORIA;PRECO;DESCRICAO_1;ID_1;VALOR'
     SQL.Strings = (
-      'SELECT * FROM produto;')
+      
+        'SELECT * FROM produto'#10'INNER JOIN categoria'#10'ON produto.ID_CATEGOR' +
+        'IA = categoria.ID;')
     Left = 80
     Top = 80
     object queryID: TIntegerField
@@ -52,5 +45,32 @@ object DM: TDM
       FieldName = 'PRECO'
       Origin = 'PRECO'
     end
+    object queryID_1: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'ID_1'
+      Origin = 'ID'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object queryDESCRICAO_1: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'DESCRICAO_1'
+      Origin = 'DESCRICAO'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 50
+    end
+    object queryVALOR: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = 'VALOR'
+      Origin = 'VALOR'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+  end
+  object DesafiodelphiConnection2: TFDConnection
+    LoginPrompt = False
+    Left = 208
+    Top = 80
   end
 end
